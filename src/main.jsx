@@ -32,12 +32,12 @@ const whatsappHref = 'https://wa.me/212661444796';
 const googleMapsHref = 'https://maps.google.com/?q=33.5731,-7.6355';
 
 const fleet = [
-  ['Renault Clio', 'economy', '350 MAD/day', 'manual', 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=1200&q=86'],
-  ['Volkswagen Golf', 'compact', '600 MAD/day', 'automatic', 'https://images.unsplash.com/photo-1532581140115-3e355d1ed1de?auto=format&fit=crop&w=1200&q=86'],
-  ['Hyundai Tucson', 'suv', '700 MAD/day', 'automatic', 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1200&q=86'],
-  ['Dacia Duster', 'suv', '550 MAD/day', 'manual', 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=86'],
-  ['Mercedes C-Class', 'premium', '1200 MAD/day', 'automatic', 'https://images.unsplash.com/photo-1616788494707-ec28f08d05a1?auto=format&fit=crop&w=1200&q=86'],
-  ['Range Rover Evoque', 'luxurySuv', '1500 MAD/day', 'automatic', 'https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?auto=format&fit=crop&w=1200&q=86'],
+  ['Renault Clio', 'economy', '350 MAD/day', 'manual', 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Renault_Clio_(V,_Facelift)_%E2%80%93_f_02092025.jpg?width=1000'],
+  ['Volkswagen Golf', 'compact', '600 MAD/day', 'automatic', 'https://commons.wikimedia.org/wiki/Special:Redirect/file/2020_Volkswagen_Golf_Style_ETSi_S-A_1.5_Front.jpg?width=1000'],
+  ['Hyundai Tucson', 'suv', '700 MAD/day', 'automatic', 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Hyundai_Tucson_1.6_T-GDI_PHEV_Trend_(IV,_Facelift)_%E2%80%93_f_15022025.jpg?width=1000'],
+  ['Dacia Duster', 'suv', '550 MAD/day', 'manual', 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Dacia_Duster_TCe_130_Extreme_(III)_%E2%80%93_f_13102024.jpg?width=1000'],
+  ['Mercedes C-Class', 'premium', '1200 MAD/day', 'automatic', 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mercedes-AMG_C_43_(W206)_IMG_0249.jpg?width=1000'],
+  ['Range Rover Evoque', 'luxurySuv', '1500 MAD/day', 'automatic', 'https://commons.wikimedia.org/wiki/Special:Redirect/file/2023_Range_Rover_Evoque_(L551)_IMG_3588.jpg?width=1000'],
 ];
 
 const copy = {
@@ -529,10 +529,12 @@ function App() {
   useEffect(() => {
     document.documentElement.lang = lang;
     document.documentElement.dir = t.dir;
+    document.body.classList.add('notranslate');
+    document.body.setAttribute('translate', 'no');
   }, [lang, t.dir]);
 
   return (
-    <>
+    <div className="notranslate" translate="no">
       <Navbar t={t} lang={lang} setLang={setLang} />
       <main>
         <Hero t={t} />
@@ -548,7 +550,7 @@ function App() {
       </main>
       <Footer t={t} />
       <FloatingWhatsApp t={t} />
-    </>
+    </div>
   );
 }
 
