@@ -4,6 +4,7 @@ import { defineConfig } from 'vite';
 import path from 'node:path';
 
 export default defineConfig({
+  base: '/LocationVoiture/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
